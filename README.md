@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/856a1253-e574-47ef-890e-ebd6f8d09b2e/deploy-status)](https://app.netlify.com/sites/willowy-cactus-0418a5/deploys)
 
+[Preview the Application!](https://willowy-cactus-0418a5.netlify.app/)
+
 # Budget Tracking App
 
 ## Available Scripts
