@@ -24,8 +24,8 @@ const Ecommerce = () => {
         <div className="w-full p-8 m-3 bg-white bg-center bg-no-repeat bg-cover dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl lg:w-80 pt-9 bg-hero-pattern">
           <div className="flex items-center justify-between">
             <div>
-              <p className="font-bold text-gray-600">Earnings</p>
-              <p className="text-2xl text-gray-400">$63,448.78</p>
+              <p className="font-bold text-gray-400">Earnings</p>
+              <p className="text-2xl">$63,448.78</p>
             </div>
             <button
               type="button"

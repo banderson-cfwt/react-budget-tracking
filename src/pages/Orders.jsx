@@ -5,24 +5,27 @@ import { ordersData, contextMenuItems, ordersGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Orders = () => {
+  const editing = { allowDeleting: true, allowEditing: true };
   return (
-    <div className="p-2 m-2 bg-white rounded md:m-10 md:p-10-3xl">
+    <div className="p-2 m-2 mt-24 bg-white md:m-10 md:p-10 rounded-3xl">
       <Header category="Page" title="Orders" />
       <GridComponent
         id="gridcomp"
         dataSource={ordersData}
         allowPaging
         allowSorting
+        allowExcelExport
+        allowPdfExport
+        contextMenuItems={contextMenuItems}
+        editSettings={editing}
       >
         <ColumnsDirective>
-          {ordersGrid.map((item, index) => (
-            <ColumnDirective key={index} {...item} />
-          ))}
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          {ordersGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
         </ColumnsDirective>
-        <Inject services={[ Resize, Sort, ContextMenu, Page, Filter, ExcelExport, Edit, PdfExport ]} />
+        <Inject services={[Resize, Sort, ContextMenu, Filter, Page, ExcelExport, Edit, PdfExport]} />
       </GridComponent>
     </div>
-  )
+  );
 };
-
 export default Orders;
