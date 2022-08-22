@@ -28,7 +28,7 @@ const UserProfile = () => {
           alt="user-profile"
         />
         <div>
-          <p className="text-xl font-semibold dark:text-gray-200"> Michael Roberts </p>
+          <p className="text-xl font-semibold dark:text-gray-200"> Bryan Anderson </p>
           <p className="text-sm text-gray-500 dark:text-gray-400">  Administrator   </p>
           <p className="text-sm font-semibold text-gray-500 dark:text-gray-400"> info@shop.com </p>
         </div>
@@ -39,7 +39,7 @@ const UserProfile = () => {
             <button
               type="button"
               style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-              className="p-3 text-xl rounded-lg  hover:bg-light-gray"
+              className="p-3 text-xl rounded-lg hover:bg-light-gray"
             >
               {item.icon}
             </button>
