@@ -19,7 +19,7 @@ const Dashboard = () => {
   const { currentColor, currentMode } = useStateContext();
 
   return (
-    <div className="mt-24">
+    <div className="mt-12">
 
       <div className="flex flex-wrap justify-center lg:flex-nowrap ">
         <div className="w-full p-8 m-3 bg-white bg-center bg-no-repeat bg-cover h-30 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-xl lg:w-80 pt-9 bg-hero-pattern">
