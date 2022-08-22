@@ -9,15 +9,20 @@ import { useStateContext } from './contexts/ContextProvider';
 import './App.css';
 
 const App = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
 
   return (
-    <div>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
-        <div className="flex relative dark:bg-main-dark-bg">
+        <div className="relative flex dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
             <TooltipComponent content="Settings" position="Top">
-              <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{ background: 'blue', borderRadius: '50%' }}>
+              <button
+                type='button' 
+                className='p-3 text-3xl text-white hover:drop-shadow-xl hover:bg-light-gray' 
+                style={{ background: currentColor, borderRadius: '50%' }}
+                onClick={() => setThemeSettings(true)}
+              >
                 <FiSettings />
               </button>
             </TooltipComponent>
@@ -31,12 +36,19 @@ const App = () => {
               <Sidebar />
             </div>
           )}
-          <div className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`}>
-            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+          <div className={
+            activeMenu
+              ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  '
+              : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
+            }
+          >
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
               <Navbar />
             </div>          
 
             <div>
+              {themeSettings && <ThemeSettings />}
+              
               <Routes>              
                 <Route path="/" element={<Ecommerce />} />
                 <Route path="/ecommerce" element={<Ecommerce />} />
@@ -44,11 +56,6 @@ const App = () => {
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/customers" element={<Customers />} />
-
-                <Route path="/kanban" element={<Kanban />} />
-                <Route path="/editor" element={<Editor />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/color-picker" element={<ColorPicker />} />
 
                 <Route path="/line" element={<Line />} />
                 <Route path="/area" element={<Area />} />
